@@ -13,7 +13,7 @@ terraform {
 
 locals {
   vdom_nats_yaml = {
-    for vdom in var.vdoms : vdom => fileexists("${var.config_path}/config/${vdom}/nat.yaml") ? yamldecode(file("${var.config_path}/config/${vdom}/nat.yaml")) : {}
+    for vdom in var.vdoms : vdom => fileexists("${var.config_path}/${vdom}/nat.yaml") ? yamldecode(file("${var.config_path}/${vdom}/nat.yaml")) : {}
   }
 
   nats = flatten([
